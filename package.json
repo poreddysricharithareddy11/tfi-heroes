@@ -1,0 +1,51 @@
+{
+  "name": "tfi-heroes-reminders",
+  "version": "1.0.0",
+  "description": "Animated TFI hero avatar reminder companion",
+  "type": "module",
+  "scripts": {
+    "start": "node server/server.js",
+    "test": "node --test test/*.test.mjs",
+    "desktop": "node desktop/launch.cjs",
+    "desktop:icon": "node desktop/make-icon.cjs",
+    "dist": "electron-builder --win nsis"
+  },
+  "dependencies": {
+    "web-push": "^3.6.7"
+  },
+  "devDependencies": {
+    "electron": "^45.2.3",
+    "electron-builder": "^26.18.0"
+  },
+  "main": "desktop/main.cjs",
+  "author": "TFI Heroes",
+  "homepage": "https://github.com/poreddysricharithareddy11/tfi-heroes",
+  "build": {
+    "appId": "com.tfiheroes.companion",
+    "productName": "TFI Heroes",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "desktop/**",
+      "server/**",
+      "public/**",
+      "package.json",
+      "!**/*.md"
+    ],
+    "extraMetadata": {
+      "main": "desktop/main.cjs"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "desktop/icon.png"
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "runAfterFinish": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}
