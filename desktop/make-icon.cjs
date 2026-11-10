@@ -1,8 +1,8 @@
 // Generates desktop/icon.png (64x64 gradient disc with a star-ish mark) — no external assets.
 const zlib = require('zlib'), fs = require('fs');
-const N = 64, raw = Buffer.alloc((N * 4 + 1) * N);
+const N = 256, K = N / 64, raw = Buffer.alloc((N * 4 + 1) * N);
 for (let y = 0; y < N; y++) { raw[y * (N * 4 + 1)] = 0; for (let x = 0; x < N; x++) {
-  const dx = x - 31.5, dy = y - 31.5, d = Math.hypot(dx, dy), o = y * (N * 4 + 1) + 1 + x * 4;
+  const dx = (x - 127.5) / K, dy = (y - 127.5) / K, d = Math.hypot(dx, dy), o = y * (N * 4 + 1) + 1 + x * 4;
   const a = d < 30 ? 255 : d < 31.5 ? Math.round((31.5 - d) * 255 / 1.5) : 0;
   const t = (x + y) / (2 * N), star = Math.abs(dx) + Math.abs(dy) < 14 || (Math.abs(dx) < 3 && Math.abs(dy) < 22) || (Math.abs(dy) < 3 && Math.abs(dx) < 22);
   const c = star ? [255, 214, 10] : [Math.round(124 - 124 * t), Math.round(92 + 117 * t), Math.round(255)];
