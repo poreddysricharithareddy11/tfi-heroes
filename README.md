@@ -3,6 +3,11 @@
 Your favourite Telugu-film-industry hero walks in from the left at the exact reminder time, tells you what to do, and
 waits for **YES** (happy, celebrates, walks off right) or **NO** (sad, turns around, walks off left, offers snooze/reschedule).
 
+## Live links
+
+* **Web app (demo):** https://poreddysricharithareddy11.github.io/tfi-heroes/ — runs in a browser tab; reminders fire only while the tab is open.
+* **Windows desktop app (floating hero over every app):** download `TFI-Heroes-Setup.exe` from [Releases](https://github.com/poreddysricharithareddy11/tfi-heroes/releases/latest). Unsigned build: Windows SmartScreen may need *More info → Run anyway*.
+
 ## Run
 
 ```
